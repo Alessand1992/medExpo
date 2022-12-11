@@ -30,7 +30,7 @@ public class LendingController {
     private OfficialSupportService officialSupportService;
 
     @ApiOperation(value = "get lending by id", notes = "get lending by id")
-    @RequestMapping(value = "/by-id",method = RequestMethod.POST)
+    @RequestMapping(value = "/lending-id",method = RequestMethod.POST)
     public RestResponse<?> findLendingById(@RequestParam Long id){
         try{
             return RestResponse.of(HttpStatus.OK,lendingService.findById(id), Map.of("0","Success"));
@@ -39,7 +39,7 @@ public class LendingController {
         }
     }
 
-    @ApiOperation(value = "get visitors by id", notes = "get lending by id")
+    @ApiOperation(value = "get visitors by id", notes = "get visitors by id")
     @RequestMapping(value = "/visitor-id",method = RequestMethod.POST)
     public RestResponse<?> findVisitorById(@RequestParam Long id){
         try{
@@ -49,8 +49,8 @@ public class LendingController {
         }
     }
 
-    @ApiOperation(value = "get press release by id", notes = "get lending by id")
-    @RequestMapping(value = "/by-id",method = RequestMethod.POST)
+    @ApiOperation(value = "get press release by id", notes = "get press release by id")
+    @RequestMapping(value = "/pressRelease-id",method = RequestMethod.POST)
     public RestResponse<?> findPressReleaseById(@RequestParam Long id){
         try{
             return RestResponse.of(HttpStatus.OK,pressReleaseService.findById(id), Map.of("0","Success"));
@@ -59,8 +59,8 @@ public class LendingController {
         }
     }
 
-    @ApiOperation(value = "get official support by id", notes = "get lending by id")
-    @RequestMapping(value = "/by-id",method = RequestMethod.POST)
+    @ApiOperation(value = "get official support by id", notes = "get official support by id")
+    @RequestMapping(value = "/officialSupport-id",method = RequestMethod.POST)
     public RestResponse<?> findOfficialSupportById(@RequestParam Long id){
         try{
             return RestResponse.of(HttpStatus.OK,officialSupportService.findById(id), Map.of("0","Success"));
