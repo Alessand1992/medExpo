@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 @Slf4j
@@ -43,5 +45,10 @@ public class PhotosServiceImpl implements PhotosService {
     public PhotosDto delete(PhotosDto photosDto) {
         photosRepo.deleteById(photosDto.getId());
         return photosDto;
+    }
+
+    @Override
+    public List<Photos> findAll() {
+        return photosRepo.findAll();
     }
 }

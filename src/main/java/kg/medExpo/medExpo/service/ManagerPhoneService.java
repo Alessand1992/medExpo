@@ -4,6 +4,8 @@ import kg.medExpo.medExpo.model.InfoSupport;
 import kg.medExpo.medExpo.model.ManagerPhone;
 import kg.medExpo.medExpo.model.dto.ManagerPhoneDto;
 
+import java.util.List;
+
 public interface ManagerPhoneService {
 
     ManagerPhoneDto findById(Long id);
@@ -13,4 +15,6 @@ public interface ManagerPhoneService {
     ManagerPhoneDto update(ManagerPhoneDto managerPhoneDto);
 
     ManagerPhoneDto delete(ManagerPhoneDto managerPhoneDto);
+
+    List<ManagerPhone> findAll();
 }

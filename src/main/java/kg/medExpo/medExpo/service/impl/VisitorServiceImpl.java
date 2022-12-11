@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 @Slf4j
@@ -67,5 +69,10 @@ public class VisitorServiceImpl implements VisitorService {
     public VisitorDto delete(VisitorDto visitorDto) {
         visitorsRepo.deleteById(visitorDto.getId());
         return visitorDto;
+    }
+
+    @Override
+    public List<Visitor> findAll() {
+        return visitorsRepo.findAll();
     }
 }

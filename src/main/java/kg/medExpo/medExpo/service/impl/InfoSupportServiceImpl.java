@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.hibernate.id.UUIDGenerator;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -52,5 +53,10 @@ public class InfoSupportServiceImpl implements InfoSupportService {
     public InfoSupportDto delete(InfoSupportDto infoSupportDto) {
         infoSupportRepo.deleteById(infoSupportDto.getId());
         return infoSupportDto;
+    }
+
+    @Override
+    public List<InfoSupport> findAll() {
+        return null;
     }
 }

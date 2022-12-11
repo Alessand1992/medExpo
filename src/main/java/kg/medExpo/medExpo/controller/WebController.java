@@ -41,6 +41,16 @@ public class WebController {
         }
     }
 
+    @ApiOperation(value = "logo-find-all", notes = "logo-find-all")
+    @RequestMapping(value = "/logo/find-all",method = RequestMethod.GET)
+    public RestResponse<?> findAllLogo(){
+        try{
+            return RestResponse.of(HttpStatus.OK, logoService.findAll(), Map.of("0","Success"));
+        }catch (Exception e){
+            return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
+        }
+    }
+
     @ApiOperation(value = "update logo", notes = "update logo")
     @RequestMapping(value = "/logo/update",method = RequestMethod.PUT)
     public RestResponse<?> updateLogo(@RequestBody LogoDto logoDto){
@@ -81,6 +91,16 @@ public class WebController {
         }
     }
 
+    @ApiOperation(value = "infoSupport-find-all", notes = "infoSupport-find-all")
+    @RequestMapping(value = "/infoSupport/find-all",method = RequestMethod.GET)
+    public RestResponse<?> findAllInfoSupport(){
+        try{
+            return RestResponse.of(HttpStatus.OK, infoSupportService.findAll(), Map.of("0","Success"));
+        }catch (Exception e){
+            return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
+        }
+    }
+
     @ApiOperation(value = "infoSupport-update", notes = "infoSupport-update")
     @RequestMapping(value = "/infoSupport/update",method = RequestMethod.PUT)
     public RestResponse<?> updateInfoSupport(@RequestBody InfoSupportDto infoSupportDto){
@@ -113,9 +133,19 @@ public class WebController {
 
     @ApiOperation(value = "lending-create", notes = "lending-create")
     @RequestMapping(value = "/lending/create",method = RequestMethod.POST)
-    public RestResponse<?> createLending(@RequestBody LendingDto lendingDto){
+    public RestResponse<?> createLending(@RequestBody NameDto nameDto){
         try{
-            return RestResponse.of(HttpStatus.OK,lendingService.createLending(lendingDto.getName()), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,lendingService.createLending(nameDto.getName()), Map.of("0","Success"));
+        }catch (Exception e){
+            return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
+        }
+    }
+
+    @ApiOperation(value = "lending-find-all", notes = "lending-find-all")
+    @RequestMapping(value = "/lending/find-all",method = RequestMethod.GET)
+    public RestResponse<?> findAllLending(){
+        try{
+            return RestResponse.of(HttpStatus.OK, lendingService.findAll(), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -136,6 +166,16 @@ public class WebController {
     public RestResponse<?> createManagerPhone(@RequestBody ManagerPhoneDto managerPhoneDto){
         try{
             return RestResponse.of(HttpStatus.OK,managerPhoneService.create(managerPhoneDto), Map.of("0","Success"));
+        }catch (Exception e){
+            return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
+        }
+    }
+
+    @ApiOperation(value = "manager-phone-find-all", notes = "manager-phone-find-all")
+    @RequestMapping(value = "/manager-phone/find-all",method = RequestMethod.GET)
+    public RestResponse<?> findAllManagerPhone(){
+        try{
+            return RestResponse.of(HttpStatus.OK, managerPhoneService.findAll(), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -181,6 +221,16 @@ public class WebController {
         }
     }
 
+    @ApiOperation(value = "official-support-find-all", notes = "official-support-find-all")
+    @RequestMapping(value = "/official-support/find-all",method = RequestMethod.GET)
+    public RestResponse<?> findAllOfficialSupport(){
+        try{
+            return RestResponse.of(HttpStatus.OK, officialSupportService.findAll(), Map.of("0","Success"));
+        }catch (Exception e){
+            return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
+        }
+    }
+
     @ApiOperation(value = "official-support-update", notes = "official-support-update")
     @RequestMapping(value = "/official-support/update",method = RequestMethod.PUT)
     public RestResponse<?> updateOfficialSupport(@RequestBody OfficialSupportDto officialSupportDto){
@@ -221,6 +271,17 @@ public class WebController {
         }
     }
 
+    @ApiOperation(value = "press-release-find-all", notes = "press-release-find-all")
+    @RequestMapping(value = "/press-release/find-all",method = RequestMethod.GET)
+    public RestResponse<?> findAllPressRelease(){
+        try{
+            return RestResponse.of(HttpStatus.OK, pressReleaseService.findAll(), Map.of("0","Success"));
+        }catch (Exception e){
+            return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
+        }
+    }
+
+
     @ApiOperation(value = "press-release-update", notes = "press-release-update")
     @RequestMapping(value = "/press-release/update",method = RequestMethod.PUT)
     public RestResponse<?> updatePressRelease(@RequestBody PressReleaseDto pressReleaseDto){
@@ -256,6 +317,16 @@ public class WebController {
     public RestResponse<?> createProgram(@RequestBody ProgramDto programDto){
         try{
             return RestResponse.of(HttpStatus.OK,programService.create(programDto), Map.of("0","Success"));
+        }catch (Exception e){
+            return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
+        }
+    }
+
+    @ApiOperation(value = "program-find-all", notes = "program-find-all")
+    @RequestMapping(value = "/program/find-all",method = RequestMethod.GET)
+    public RestResponse<?> findAllProgram(){
+        try{
+            return RestResponse.of(HttpStatus.OK, programService.findAll(), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -301,6 +372,16 @@ public class WebController {
         }
     }
 
+    @ApiOperation(value = "sponsor-find-all", notes = "sponsor-find-all")
+    @RequestMapping(value = "/sponsor/find-all",method = RequestMethod.GET)
+    public RestResponse<?> findAllSponsor(){
+        try{
+            return RestResponse.of(HttpStatus.OK, sponsorService.findAll(), Map.of("0","Success"));
+        }catch (Exception e){
+            return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
+        }
+    }
+
     @ApiOperation(value = "sponsor-update", notes = "sponsor-update")
     @RequestMapping(value = "/sponsor/update",method = RequestMethod.PUT)
     public RestResponse<?> updateSponsor(@RequestBody SponsorDto sponsorDto){
@@ -336,6 +417,16 @@ public class WebController {
     public RestResponse<?> createVisitor(@RequestBody VisitorDto visitorDto){
         try{
             return RestResponse.of(HttpStatus.OK,visitorService.create(visitorDto), Map.of("0","Success"));
+        }catch (Exception e){
+            return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
+        }
+    }
+
+    @ApiOperation(value = "visitor-find-all", notes = "visitor-find-all")
+    @RequestMapping(value = "/visitor/find-all",method = RequestMethod.GET)
+    public RestResponse<?> findAllVisitor(){
+        try{
+            return RestResponse.of(HttpStatus.OK, visitorService.findAll(), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -381,6 +472,16 @@ public class WebController {
         }
     }
 
+    @ApiOperation(value = "photo-find-all", notes = "photo-find-all")
+    @RequestMapping(value = "/photo/find-all",method = RequestMethod.GET)
+    public RestResponse<?> findAllPhoto(){
+        try{
+            return RestResponse.of(HttpStatus.OK, photosService.findAll(), Map.of("0","Success"));
+        }catch (Exception e){
+            return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
+        }
+    }
+
     @ApiOperation(value = "photo-update", notes = "photo-update")
     @RequestMapping(value = "/photo/update",method = RequestMethod.PUT)
     public RestResponse<?> updatePhoto(@RequestBody PhotosDto photosDto){
@@ -416,6 +517,16 @@ public class WebController {
     public RestResponse<?> createVideo(@RequestBody VideoDto videoDto){
         try{
             return RestResponse.of(HttpStatus.OK,videoService.create(videoDto), Map.of("0","Success"));
+        }catch (Exception e){
+            return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
+        }
+    }
+
+    @ApiOperation(value = "video-find-all", notes = "video-find-all")
+    @RequestMapping(value = "/video/find-all",method = RequestMethod.GET)
+    public RestResponse<?> findAllVideo(){
+        try{
+            return RestResponse.of(HttpStatus.OK, videoService.findAll(), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }

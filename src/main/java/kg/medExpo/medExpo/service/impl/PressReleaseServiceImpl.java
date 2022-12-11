@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Slf4j
 @Service
@@ -44,5 +46,10 @@ public class PressReleaseServiceImpl implements PressReleaseService {
     public PressReleaseDto delete(PressReleaseDto pressReleaseDto) {
         pressReleaseRepo.deleteById(pressReleaseDto.getId());
         return pressReleaseDto;
+    }
+
+    @Override
+    public List<PressRelease> findAll() {
+        return pressReleaseRepo.findAll();
     }
 }

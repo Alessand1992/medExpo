@@ -4,6 +4,8 @@ import kg.medExpo.medExpo.model.Lending;
 import kg.medExpo.medExpo.model.MessageRequest;
 import kg.medExpo.medExpo.model.dto.LendingDto;
 
+import java.util.List;
+
 public interface LendingService {
 
     Lending findById(Long id);
@@ -11,6 +13,8 @@ public interface LendingService {
     Lending updateById(LendingDto lendingDto);
 
     String createLending(String lendingName);
+
+    List<Lending> findAll();
 
     String createMessage(MessageRequest messageRequest);
 }

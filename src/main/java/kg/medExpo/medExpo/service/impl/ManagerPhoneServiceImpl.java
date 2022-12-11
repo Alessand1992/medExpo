@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 @Slf4j
@@ -56,5 +58,10 @@ public class ManagerPhoneServiceImpl implements ManagerPhoneService {
     public ManagerPhoneDto delete(ManagerPhoneDto managerPhoneDto) {
         managerPhoneRepo.deleteById(managerPhoneDto.getId());
         return managerPhoneDto;
+    }
+
+    @Override
+    public List<ManagerPhone> findAll() {
+        return managerPhoneRepo.findAll();
     }
 }

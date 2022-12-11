@@ -89,6 +89,11 @@ public class LendingServiceImpl implements LendingService {
     }
 
     @Override
+    public List<Lending> findAll() {
+        return lendingRepo.findAll();
+    }
+
+    @Override
     public String createMessage(MessageRequest messageRequest) {
         return null;
     }

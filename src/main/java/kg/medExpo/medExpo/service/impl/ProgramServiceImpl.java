@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 @Slf4j
@@ -47,4 +49,11 @@ public class ProgramServiceImpl implements ProgramService {
         programRepo.deleteById(programDto.getId());
         return programDto;
     }
+
+    @Override
+    public List<Program> findAll() {
+        return programRepo.findAll();
+    }
+
+
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -52,5 +53,10 @@ public class LogoServiceImpl implements LogoService {
     public LogoDto delete(LogoDto logoDto) {
         logoRepo.deleteById(logoDto.getId());
         return logoDto;
+    }
+
+    @Override
+    public List<Logo> findAll() {
+        return logoRepo.findAll();
     }
 }

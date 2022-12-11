@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 @Slf4j
@@ -47,5 +49,10 @@ public class SponsorServiceImpl implements SponsorService {
     public SponsorDto delete(SponsorDto sponsorDto) {
         sponsorRepo.deleteById(sponsorDto.getId());
         return sponsorDto;
+    }
+
+    @Override
+    public List<Sponsor> findAll() {
+        return sponsorRepo.findAll();
     }
 }
