@@ -35,11 +35,16 @@ public class ProgramServiceImpl implements ProgramService {
 
     @Override
     public ProgramDto update(ProgramDto programDto) {
-        return null;
+        Program program = programRepo.getReferenceById(programDto.getId());
+        program.setLanguageId(programDto.getLanguageId());
+        program.setTitle(programDto.getTitle());
+        programRepo.save(program);
+        return programDto;
     }
 
     @Override
     public ProgramDto delete(ProgramDto programDto) {
-        return null;
+        programRepo.deleteById(programDto.getId());
+        return programDto;
     }
 }

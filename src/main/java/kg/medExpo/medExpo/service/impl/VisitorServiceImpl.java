@@ -34,7 +34,6 @@ public class VisitorServiceImpl implements VisitorService {
     @Override
     public VisitorDto create(VisitorDto visitorDto) {
         Visitor visitor = new Visitor();
-        visitor.setId(visitorDto.getId());
         visitor.setFiles(visitorDto.getFiles());
         visitor.setStartDate(visitorDto.getStartDate());
         visitor.setEndDate(visitorDto.getEndDate());
@@ -51,7 +50,6 @@ public class VisitorServiceImpl implements VisitorService {
     @Override
     public VisitorDto update(VisitorDto visitorDto) {
         Visitor visitor = visitorsRepo.getReferenceById(visitorDto.getId());
-        visitor.setId(visitorDto.getId());
         visitor.setFiles(visitorDto.getFiles());
         visitor.setStartDate(visitorDto.getStartDate());
         visitor.setEndDate(visitorDto.getEndDate());

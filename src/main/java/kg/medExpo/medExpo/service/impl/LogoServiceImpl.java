@@ -40,11 +40,17 @@ public class LogoServiceImpl implements LogoService {
 
     @Override
     public LogoDto update(LogoDto logoDto) {
-        return null;
+        Logo logo = logoRepo.getReferenceById(logoDto.getId());
+        logo.setLendingName(logoDto.getLendingName());
+        logo.setCreatedDate(LocalDateTime.now());
+        logo.setImageUrl(logoDto.getImageUrl());
+        logoRepo.save(logo);
+        return logoDto;
     }
 
     @Override
     public LogoDto delete(LogoDto logoDto) {
-        return null;
+        logoRepo.deleteById(logoDto.getId());
+        return logoDto;
     }
 }
