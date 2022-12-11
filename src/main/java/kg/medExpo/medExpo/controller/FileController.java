@@ -73,6 +73,7 @@ public class FileController {
         File file1 = new File();
         file1.setFileName(file.getOriginalFilename());
         file1.setUri(uri);
+        file1.setContentType(file.getContentType());
         fileRepo.save(file1);
         return new FileResponse(name, uri, file.getContentType(), file.getSize());
     }

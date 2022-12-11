@@ -16,4 +16,6 @@ public class File {
     private String fileName;
     @Column
     private String uri;
+    @Column
+    private String contentType;
 }
