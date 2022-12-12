@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 
 @Data
 public class SponsorDto {
-    private Long id;
     private String sponsorsLogoUrl;
     private String sponsorsName;
     private Language languageId;

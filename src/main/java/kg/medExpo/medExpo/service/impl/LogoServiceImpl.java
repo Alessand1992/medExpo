@@ -23,7 +23,6 @@ public class LogoServiceImpl implements LogoService {
     public LogoDto findById(Long id) {
         Logo logo = logoRepo.getReferenceById(id);
         LogoDto logoDto = new LogoDto();
-        logoDto.setId(logo.getId());
         logoDto.setImageUrl(logo.getImageUrl());
         logoDto.setLendingName(logo.getLendingName());
         return logoDto;
@@ -40,8 +39,8 @@ public class LogoServiceImpl implements LogoService {
     }
 
     @Override
-    public LogoDto update(LogoDto logoDto) {
-        Logo logo = logoRepo.getReferenceById(logoDto.getId());
+    public LogoDto update(Long id,LogoDto logoDto) {
+        Logo logo = logoRepo.getReferenceById(id);
         logo.setLendingName(logoDto.getLendingName());
         logo.setCreatedDate(LocalDateTime.now());
         logo.setImageUrl(logoDto.getImageUrl());
@@ -50,9 +49,9 @@ public class LogoServiceImpl implements LogoService {
     }
 
     @Override
-    public LogoDto delete(LogoDto logoDto) {
-        logoRepo.deleteById(logoDto.getId());
-        return logoDto;
+    public String delete(Long id) {
+        logoRepo.deleteById(id);
+        return "success";
     }
 
     @Override

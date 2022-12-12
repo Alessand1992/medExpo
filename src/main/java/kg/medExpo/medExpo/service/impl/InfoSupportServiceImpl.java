@@ -19,14 +19,8 @@ public class InfoSupportServiceImpl implements InfoSupportService {
     private InfoSupportRepo infoSupportRepo;
 
     @Override
-    public InfoSupportDto findById(Long id) {
-        InfoSupport infoSupport = infoSupportRepo.getReferenceById(id);
-        InfoSupportDto infoSupportDto = new InfoSupportDto();
-        infoSupportDto.setId(infoSupport.getId());
-        infoSupportDto.setInfo(infoSupport.getInfo());
-        infoSupportDto.setLanguageId(infoSupport.getLanguageId());
-        infoSupportDto.setUrl(infoSupport.getUrl());
-        return infoSupportDto;
+    public InfoSupport findById(Long id) {
+        return infoSupportRepo.getReferenceById(id);
     }
 
     @Override
@@ -40,8 +34,8 @@ public class InfoSupportServiceImpl implements InfoSupportService {
     }
 
     @Override
-    public InfoSupportDto update(InfoSupportDto infoSupportDto) {
-        InfoSupport infoSupport = infoSupportRepo.getReferenceById(infoSupportDto.getId());
+    public InfoSupportDto update(Long id,InfoSupportDto infoSupportDto) {
+        InfoSupport infoSupport = infoSupportRepo.getReferenceById(id);
         infoSupport.setInfo(infoSupportDto.getInfo());
         infoSupport.setUrl(infoSupportDto.getUrl());
         infoSupport.setLanguageId(infoSupportDto.getLanguageId());
@@ -50,13 +44,13 @@ public class InfoSupportServiceImpl implements InfoSupportService {
     }
 
     @Override
-    public InfoSupportDto delete(InfoSupportDto infoSupportDto) {
-        infoSupportRepo.deleteById(infoSupportDto.getId());
-        return infoSupportDto;
+    public String delete(Long id) {
+        infoSupportRepo.deleteById(id);
+        return "success";
     }
 
     @Override
     public List<InfoSupport> findAll() {
-        return null;
+        return infoSupportRepo.findAll();
     }
 }

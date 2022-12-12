@@ -10,7 +10,6 @@ import javax.persistence.ManyToOne;
 
 @Data
 public class OfficialSupportDto {
-    private Long id;
     private String info;
     private String url;
     private Language languageId;

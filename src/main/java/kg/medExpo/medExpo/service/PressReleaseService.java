@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface PressReleaseService {
 
-    PressReleaseDto findById(Long id);
+    PressRelease findById(Long id);
 
     PressReleaseDto create(PressReleaseDto pressReleaseDto);
 
-    PressReleaseDto update(PressReleaseDto pressReleaseDto);
+    PressReleaseDto update(Long id,PressReleaseDto pressReleaseDto);
 
-    PressReleaseDto delete(PressReleaseDto pressReleaseDto);
+    String delete(Long id);
 
     List<PressRelease> findAll();
 

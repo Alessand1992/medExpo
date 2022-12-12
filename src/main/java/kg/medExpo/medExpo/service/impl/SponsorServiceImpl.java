@@ -16,14 +16,8 @@ import java.util.List;
 public class SponsorServiceImpl implements SponsorService {
     private SponsorRepo sponsorRepo;
     @Override
-    public SponsorDto findById(Long id) {
-        Sponsor sponsor = sponsorRepo.getReferenceById(id);
-        SponsorDto sponsorDto = new SponsorDto();
-        sponsorDto.setId(sponsor.getId());
-        sponsorDto.setSponsorsName(sponsor.getSponsorsName());
-        sponsorDto.setSponsorsLogoUrl(sponsor.getSponsorsLogoUrl());
-        sponsorDto.setLanguageId(sponsor.getLanguageId());
-        return sponsorDto;
+    public Sponsor findById(Long id) {
+        return sponsorRepo.getReferenceById(id);
     }
 
     @Override
@@ -37,8 +31,8 @@ public class SponsorServiceImpl implements SponsorService {
     }
 
     @Override
-    public SponsorDto update(SponsorDto sponsorDto) {
-        Sponsor sponsor = sponsorRepo.getReferenceById(sponsorDto.getId());
+    public SponsorDto update(Long id,SponsorDto sponsorDto) {
+        Sponsor sponsor = sponsorRepo.getReferenceById(id);
         sponsor.setSponsorsLogoUrl(sponsorDto.getSponsorsLogoUrl());
         sponsor.setSponsorsName(sponsorDto.getSponsorsName());
         sponsor.setLanguageId(sponsorDto.getLanguageId());
@@ -46,9 +40,9 @@ public class SponsorServiceImpl implements SponsorService {
     }
 
     @Override
-    public SponsorDto delete(SponsorDto sponsorDto) {
-        sponsorRepo.deleteById(sponsorDto.getId());
-        return sponsorDto;
+    public String delete(Long id) {
+        sponsorRepo.deleteById(id);
+        return "success";
     }
 
     @Override

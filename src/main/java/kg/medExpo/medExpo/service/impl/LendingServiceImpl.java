@@ -33,14 +33,15 @@ public class LendingServiceImpl implements LendingService {
     }
 
     @Override
-    public Lending updateById(LendingDto lendingDto) {
-        Lending lending = lendingRepo.getReferenceById(lendingDto.getId());
+    public Lending updateById(Long id,LendingDto lendingDto) {
+        Lending lending = lendingRepo.getReferenceById(id);
         List<InfoSupport> infoSupports = new ArrayList<>();
         List<OfficialSupport> officialSupports = new ArrayList<>();
         List<Sponsor> sponsors = new ArrayList<>();
         List<Photos> photos = new ArrayList<>();
         List<Video> videos = new ArrayList<>();
-        lending.setLogo(logoRepo.getReferenceById(lendingDto.getId()));
+
+        lending.setLogo(logoRepo.getReferenceById(lendingDto.getLogo()));
         lending.setStartDate(lendingDto.getStartDate());
         lending.setEndDate(lendingDto.getEndDate());
 
@@ -61,6 +62,7 @@ public class LendingServiceImpl implements LendingService {
             sponsors.add(sponsor);
         }
         lending.setSponsor(sponsors);
+
         lending.setPrograms(programRepo.getReferenceById(lendingDto.getPrograms()));
 
         for(int i = 0;i<lendingDto.getPhotos().size();i++) {
@@ -85,6 +87,7 @@ public class LendingServiceImpl implements LendingService {
     public String createLending(String lendingName) {
         Lending lending = new Lending();
         lending.setName(lendingName);
+        lendingRepo.save(lending);
         return "Success create lending " + lendingName;
     }
 

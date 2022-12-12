@@ -9,7 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 @Data
 public class InfoSupportDto {
-    private Long id;
     private String info;
     private String url;
     private Language languageId;

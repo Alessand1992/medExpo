@@ -7,7 +7,6 @@ import javax.persistence.Column;
 
 @Data
 public class LogoDto {
-    private Long id;
     private String lendingName;
     private String imageUrl;
 

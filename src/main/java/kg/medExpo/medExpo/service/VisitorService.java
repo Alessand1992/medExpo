@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface VisitorService {
 
-    VisitorDto findById(Long id);
+    Visitor findById(Long id);
 
     VisitorDto create(VisitorDto visitorDto);
 
-    VisitorDto update(VisitorDto visitorDto);
+    VisitorDto update(Long id,VisitorDto visitorDto);
 
-    VisitorDto delete(VisitorDto visitorDto);
+    String delete(Long id);
 
     List<Visitor> findAll();
 }

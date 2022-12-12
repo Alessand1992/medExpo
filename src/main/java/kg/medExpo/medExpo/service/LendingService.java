@@ -10,7 +10,7 @@ public interface LendingService {
 
     Lending findById(Long id);
 
-    Lending updateById(LendingDto lendingDto);
+    Lending updateById(Long id,LendingDto lendingDto);
 
     String createLending(String lendingName);
 

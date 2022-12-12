@@ -6,6 +6,5 @@ import javax.persistence.Column;
 
 @Data
 public class VideoDto {
-    private Long id;
     private String url;
 }

@@ -11,9 +11,9 @@ public interface OfficialSupportService {
 
     OfficialSupportDto create(OfficialSupportDto officialSupportDto);
 
-    OfficialSupportDto update(OfficialSupportDto officialSupportDto);
+    OfficialSupportDto update(Long id,OfficialSupportDto officialSupportDto);
 
-    OfficialSupportDto delete(OfficialSupportDto officialSupportDto);
+    String delete(Long id);
 
     List<OfficialSupport> findAll();
 }

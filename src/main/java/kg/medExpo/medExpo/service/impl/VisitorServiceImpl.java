@@ -17,20 +17,8 @@ public class VisitorServiceImpl implements VisitorService {
 
     private VisitorsRepo visitorsRepo;
     @Override
-    public VisitorDto findById(Long id) {
-        Visitor visitor = visitorsRepo.getReferenceById(id);
-        VisitorDto visitorDto = new VisitorDto();
-        visitorDto.setId(visitor.getId());
-        visitorDto.setFiles(visitor.getFiles());
-        visitorDto.setStartDate(visitor.getStartDate());
-        visitorDto.setEndDate(visitor.getEndDate());
-        visitorDto.setTextMain(visitor.getTextMain());
-        visitorDto.setTextFirst(visitor.getTextFirst());
-        visitorDto.setTextSecond(visitor.getTextSecond());
-        visitorDto.setTextThird(visitor.getTextThird());
-        visitorDto.setTextFour(visitor.getTextFour());
-        visitorDto.setTextFive(visitor.getTextFive());
-        return visitorDto;
+    public Visitor findById(Long id) {
+        return visitorsRepo.getReferenceById(id);
     }
 
     @Override
@@ -50,8 +38,8 @@ public class VisitorServiceImpl implements VisitorService {
     }
 
     @Override
-    public VisitorDto update(VisitorDto visitorDto) {
-        Visitor visitor = visitorsRepo.getReferenceById(visitorDto.getId());
+    public VisitorDto update(Long id,VisitorDto visitorDto) {
+        Visitor visitor = visitorsRepo.getReferenceById(id);
         visitor.setFiles(visitorDto.getFiles());
         visitor.setStartDate(visitorDto.getStartDate());
         visitor.setEndDate(visitorDto.getEndDate());
@@ -66,9 +54,9 @@ public class VisitorServiceImpl implements VisitorService {
     }
 
     @Override
-    public VisitorDto delete(VisitorDto visitorDto) {
-        visitorsRepo.deleteById(visitorDto.getId());
-        return visitorDto;
+    public String delete(Long id) {
+        visitorsRepo.deleteById(id);
+        return "success";
     }
 
     @Override

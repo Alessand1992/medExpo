@@ -18,12 +18,8 @@ public class VideoServiceImpl implements VideoService {
     private VideoRepo videoRepo;
 
     @Override
-    public VideoDto findById(Long id) {
-        Video video = videoRepo.getReferenceById(id);
-        VideoDto videoDto = new VideoDto();
-        videoDto.setId(video.getId());
-        videoDto.setUrl(video.getUrl());
-        return videoDto;
+    public Video findById(Long id) {
+        return videoRepo.getReferenceById(id);
     }
 
     @Override
@@ -35,16 +31,16 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public VideoDto update(VideoDto videoDto) {
-        Video video = videoRepo.getReferenceById(videoDto.getId());
+    public VideoDto update(Long id,VideoDto videoDto) {
+        Video video = videoRepo.getReferenceById(id);
         video.setUrl(videoDto.getUrl());
         return videoDto;
     }
 
     @Override
-    public VideoDto delete(VideoDto videoDto) {
-        videoRepo.deleteById(videoDto.getId());
-        return videoDto;
+    public String delete(Long id) {
+        videoRepo.deleteById(id);
+        return "success";
     }
 
     @Override

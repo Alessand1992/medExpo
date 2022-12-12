@@ -53,9 +53,9 @@ public class WebController {
 
     @ApiOperation(value = "update logo", notes = "update logo")
     @RequestMapping(value = "/logo/update",method = RequestMethod.PUT)
-    public RestResponse<?> updateLogo(@RequestBody LogoDto logoDto){
+    public RestResponse<?> updateLogo(@RequestBody LogoDto logoDto,@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,logoService.update(logoDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,logoService.update(id,logoDto), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -63,9 +63,9 @@ public class WebController {
 
     @ApiOperation(value = "delete logo by id", notes = "delete logo by id")
     @RequestMapping(value = "/logo/delete",method = RequestMethod.POST)
-    public RestResponse<?> deleteLogoById(@RequestBody LogoDto logoDto){
+    public RestResponse<?> deleteLogoById(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,logoService.delete(logoDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,logoService.delete(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -73,9 +73,9 @@ public class WebController {
 
     @ApiOperation(value = "find logo by id", notes = "find logo by id")
     @RequestMapping(value = "/logo",method = RequestMethod.POST)
-    public RestResponse<?> findLogoById(@RequestBody LogoDto logoDto){
+    public RestResponse<?> findLogoById(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,logoService.findById(logoDto.getId()), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,logoService.findById(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -103,9 +103,9 @@ public class WebController {
 
     @ApiOperation(value = "infoSupport-update", notes = "infoSupport-update")
     @RequestMapping(value = "/infoSupport/update",method = RequestMethod.PUT)
-    public RestResponse<?> updateInfoSupport(@RequestBody InfoSupportDto infoSupportDto){
+    public RestResponse<?> updateInfoSupport(@RequestBody InfoSupportDto infoSupportDto,@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,infoSupportService.update(infoSupportDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,infoSupportService.update(id,infoSupportDto), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -113,9 +113,9 @@ public class WebController {
 
     @ApiOperation(value = "infoSupport-update", notes = "infoSupport-update")
     @RequestMapping(value = "/infoSupport/delete",method = RequestMethod.POST)
-    public RestResponse<?> deleteInfoSupportById(@RequestBody InfoSupportDto infoSupportDto){
+    public RestResponse<?> deleteInfoSupportById(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,infoSupportService.delete(infoSupportDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,infoSupportService.delete(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -123,9 +123,9 @@ public class WebController {
 
     @ApiOperation(value = "infoSupport-get by id", notes = "infoSupport-get by id")
     @RequestMapping(value = "/infoSupport",method = RequestMethod.POST)
-    public RestResponse<?> findInfoSupportById(@RequestBody InfoSupportDto infoSupportDto){
+    public RestResponse<?> findInfoSupportById(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,infoSupportService.findById(infoSupportDto.getId()), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,infoSupportService.findById(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -153,9 +153,9 @@ public class WebController {
 
     @ApiOperation(value = "lending-update", notes = "lending-update")
     @RequestMapping(value = "/lending/update",method = RequestMethod.POST)
-    public RestResponse<?> updateLending(@RequestBody LendingDto lendingDto){
+    public RestResponse<?> updateLending(@RequestBody LendingDto lendingDto,@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,lendingService.updateById(lendingDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,lendingService.updateById(id,lendingDto), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -183,9 +183,9 @@ public class WebController {
 
     @ApiOperation(value = "manager-phone-update", notes = "manager-phone-update")
     @RequestMapping(value = "/managerPhone/update",method = RequestMethod.PUT)
-    public RestResponse<?> updateManagerPhone(@RequestBody ManagerPhoneDto managerPhoneDto){
+    public RestResponse<?> updateManagerPhone(@RequestBody ManagerPhoneDto managerPhoneDto,@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,managerPhoneService.update(managerPhoneDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,managerPhoneService.update(id,managerPhoneDto), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -193,9 +193,9 @@ public class WebController {
 
     @ApiOperation(value = "manager-phone-delete by id", notes = "manager-phone-delete by id")
     @RequestMapping(value = "/managerPhone/delete",method = RequestMethod.POST)
-    public RestResponse<?> deleteManagerPhoneById(@RequestBody ManagerPhoneDto managerPhoneDto){
+    public RestResponse<?> deleteManagerPhoneById(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,managerPhoneService.delete(managerPhoneDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,managerPhoneService.delete(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -203,9 +203,9 @@ public class WebController {
 
     @ApiOperation(value = "manager-phone-get by id", notes = "manager-phone-get by id")
     @RequestMapping(value = "/managerPhone",method = RequestMethod.POST)
-    public RestResponse<?> findManagerPhoneById(@RequestBody ManagerPhoneDto managerPhoneDto){
+    public RestResponse<?> findManagerPhoneById(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,managerPhoneService.findById(managerPhoneDto.getId()), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,managerPhoneService.findById(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -233,9 +233,9 @@ public class WebController {
 
     @ApiOperation(value = "official-support-update", notes = "official-support-update")
     @RequestMapping(value = "/official-support/update",method = RequestMethod.PUT)
-    public RestResponse<?> updateOfficialSupport(@RequestBody OfficialSupportDto officialSupportDto){
+    public RestResponse<?> updateOfficialSupport(@RequestBody OfficialSupportDto officialSupportDto,@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,officialSupportService.update(officialSupportDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,officialSupportService.update(id,officialSupportDto), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -243,9 +243,9 @@ public class WebController {
 
     @ApiOperation(value = "official-support-delete by id", notes = "official-support-delete by id")
     @RequestMapping(value = "/official-support/delete",method = RequestMethod.POST)
-    public RestResponse<?> deleteOfficialSupport(@RequestBody OfficialSupportDto officialSupportDto){
+    public RestResponse<?> deleteOfficialSupport(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,officialSupportService.delete(officialSupportDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,officialSupportService.delete(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -253,9 +253,9 @@ public class WebController {
 
     @ApiOperation(value = "official-support-get by id", notes = "official-support-get by id")
     @RequestMapping(value = "/official-support",method = RequestMethod.POST)
-    public RestResponse<?> findOfficialSupport(@RequestBody OfficialSupportDto officialSupportDto){
+    public RestResponse<?> findOfficialSupport(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,officialSupportService.findById(officialSupportDto.getId()), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,officialSupportService.findById(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -284,9 +284,9 @@ public class WebController {
 
     @ApiOperation(value = "press-release-update", notes = "press-release-update")
     @RequestMapping(value = "/press-release/update",method = RequestMethod.PUT)
-    public RestResponse<?> updatePressRelease(@RequestBody PressReleaseDto pressReleaseDto){
+    public RestResponse<?> updatePressRelease(@RequestBody PressReleaseDto pressReleaseDto,@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,pressReleaseService.update(pressReleaseDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,pressReleaseService.update(id,pressReleaseDto), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -294,9 +294,9 @@ public class WebController {
 
     @ApiOperation(value = "press-release-delete by id", notes = "press-release-delete by id")
     @RequestMapping(value = "/press-release/delete",method = RequestMethod.POST)
-    public RestResponse<?> deletePressRelease(@RequestBody PressReleaseDto pressReleaseDto){
+    public RestResponse<?> deletePressRelease(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,pressReleaseService.delete(pressReleaseDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,pressReleaseService.delete(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -304,9 +304,9 @@ public class WebController {
 
     @ApiOperation(value = "press-release-get by id", notes = "press-release-get by id")
     @RequestMapping(value = "/press-release",method = RequestMethod.POST)
-    public RestResponse<?> findPressRelease(@RequestBody PressReleaseDto pressReleaseDto){
+    public RestResponse<?> findPressRelease(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,pressReleaseService.findById(pressReleaseDto.getId()), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,pressReleaseService.findById(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -334,9 +334,9 @@ public class WebController {
 
     @ApiOperation(value = "program-update", notes = "program-update")
     @RequestMapping(value = "/program/update",method = RequestMethod.PUT)
-    public RestResponse<?> updateProgram(@RequestBody ProgramDto programDto){
+    public RestResponse<?> updateProgram(@RequestBody ProgramDto programDto,@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,programService.update(programDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,programService.update(id,programDto), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -344,9 +344,9 @@ public class WebController {
 
     @ApiOperation(value = "program-delete by id", notes = "program-delete by id")
     @RequestMapping(value = "/program/delete",method = RequestMethod.POST)
-    public RestResponse<?> deleteProgram(@RequestBody ProgramDto programDto){
+    public RestResponse<?> deleteProgram(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,programService.delete(programDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,programService.delete(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -354,9 +354,9 @@ public class WebController {
 
     @ApiOperation(value = "program-find by id", notes = "program-find by id")
     @RequestMapping(value = "/program",method = RequestMethod.POST)
-    public RestResponse<?> findProgram(@RequestBody ProgramDto programDto){
+    public RestResponse<?> findProgram(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,pressReleaseService.findById(programDto.getId()), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,pressReleaseService.findById(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -384,9 +384,9 @@ public class WebController {
 
     @ApiOperation(value = "sponsor-update", notes = "sponsor-update")
     @RequestMapping(value = "/sponsor/update",method = RequestMethod.PUT)
-    public RestResponse<?> updateSponsor(@RequestBody SponsorDto sponsorDto){
+    public RestResponse<?> updateSponsor(@RequestBody SponsorDto sponsorDto,@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,sponsorService.update(sponsorDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,sponsorService.update(id,sponsorDto), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -394,9 +394,9 @@ public class WebController {
 
     @ApiOperation(value = "sponsor-delete by id", notes = "sponsor-delete by id")
     @RequestMapping(value = "/sponsor/delete",method = RequestMethod.POST)
-    public RestResponse<?> deleteSponsor(@RequestBody SponsorDto sponsorDto){
+    public RestResponse<?> deleteSponsor(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,sponsorService.delete(sponsorDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,sponsorService.delete(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -404,9 +404,9 @@ public class WebController {
 
     @ApiOperation(value = "sponsor-get by id", notes = "sponsor-get by id")
     @RequestMapping(value = "/sponsor",method = RequestMethod.POST)
-    public RestResponse<?> findSponsor(@RequestBody SponsorDto sponsorDto){
+    public RestResponse<?> findSponsor(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,sponsorService.findById(sponsorDto.getId()), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,sponsorService.findById(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -434,9 +434,9 @@ public class WebController {
 
     @ApiOperation(value = "visitor-update", notes = "visitor-update")
     @RequestMapping(value = "/visitor/update",method = RequestMethod.PUT)
-    public RestResponse<?> updateVisitor(@RequestBody VisitorDto visitorDto){
+    public RestResponse<?> updateVisitor(@RequestBody VisitorDto visitorDto,@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,visitorService.update(visitorDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,visitorService.update(id,visitorDto), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -444,9 +444,9 @@ public class WebController {
 
     @ApiOperation(value = "visitor-delete by id", notes = "visitor-delete by id")
     @RequestMapping(value = "/visitor/delete",method = RequestMethod.POST)
-    public RestResponse<?> deleteVisitor(@RequestBody VisitorDto visitorDto){
+    public RestResponse<?> deleteVisitor(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,visitorService.delete(visitorDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,visitorService.delete(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -454,9 +454,9 @@ public class WebController {
 
     @ApiOperation(value = "visitor-get by id", notes = "visitor-get by id")
     @RequestMapping(value = "/visitor",method = RequestMethod.POST)
-    public RestResponse<?> findVisitor(@RequestBody VisitorDto visitorDto){
+    public RestResponse<?> findVisitor(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,visitorService.findById(visitorDto.getId()), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,visitorService.findById(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -484,9 +484,9 @@ public class WebController {
 
     @ApiOperation(value = "photo-update", notes = "photo-update")
     @RequestMapping(value = "/photo/update",method = RequestMethod.PUT)
-    public RestResponse<?> updatePhoto(@RequestBody PhotosDto photosDto){
+    public RestResponse<?> updatePhoto(@RequestBody PhotosDto photosDto,@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,photosService.update(photosDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,photosService.update(id,photosDto), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -494,9 +494,9 @@ public class WebController {
 
     @ApiOperation(value = "photo-delete by id", notes = "photo-delete by id")
     @RequestMapping(value = "/photo/delete",method = RequestMethod.POST)
-    public RestResponse<?> deletePhoto(@RequestBody PhotosDto photosDto){
+    public RestResponse<?> deletePhoto(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,photosService.delete(photosDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,photosService.delete(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -504,9 +504,9 @@ public class WebController {
 
     @ApiOperation(value = "photo-get by id", notes = "photo-get by id")
     @RequestMapping(value = "/photo",method = RequestMethod.POST)
-    public RestResponse<?> findPhoto(@RequestBody PhotosDto photosDto){
+    public RestResponse<?> findPhoto(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,photosService.findById(photosDto.getId()), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,photosService.findById(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -534,9 +534,9 @@ public class WebController {
 
     @ApiOperation(value = "video-update", notes = "video-update")
     @RequestMapping(value = "/video/update",method = RequestMethod.PUT)
-    public RestResponse<?> updateVideo(@RequestBody VideoDto videoDto){
+    public RestResponse<?> updateVideo(@RequestBody VideoDto videoDto,@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,videoService.update(videoDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,videoService.update(id,videoDto), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -544,9 +544,9 @@ public class WebController {
 
     @ApiOperation(value = "video-delete by id", notes = "video-delete by id")
     @RequestMapping(value = "/video/delete",method = RequestMethod.POST)
-    public RestResponse<?> deleteVideo(@RequestBody VideoDto videoDto){
+    public RestResponse<?> deleteVideo(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,videoService.delete(videoDto), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,videoService.delete(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -554,9 +554,9 @@ public class WebController {
 
     @ApiOperation(value = "video-get by id", notes = "video-get by id")
     @RequestMapping(value = "/video",method = RequestMethod.POST)
-    public RestResponse<?> findVideo(@RequestBody VideoDto videoDto){
+    public RestResponse<?> findVideo(@RequestParam("id") Long id){
         try{
-            return RestResponse.of(HttpStatus.OK,videoService.findById(videoDto.getId()), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,videoService.findById(id), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }

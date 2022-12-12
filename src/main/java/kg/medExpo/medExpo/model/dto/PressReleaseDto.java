@@ -10,7 +10,8 @@ import java.util.List;
 
 @Data
 public class PressReleaseDto {
-    private Long id;
     private List<Long> filesId;
     private File uri;
+
+    private String text;
 }

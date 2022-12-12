@@ -12,7 +12,6 @@ import java.util.List;
 
 @Data
 public class LendingDto{
-    private Long id;
     private Long Logo;
     private String name;
     private LocalDateTime startDate;

@@ -21,7 +21,6 @@ public class PhotosServiceImpl implements PhotosService {
     public PhotosDto findById(Long id) {
         Photos photos = photosRepo.getReferenceById(id);
         PhotosDto photosDto = new PhotosDto();
-        photosDto.setId(photos.getId());
         photosDto.setUrl(photos.getUrl());
         return photosDto;
     }
@@ -35,16 +34,16 @@ public class PhotosServiceImpl implements PhotosService {
     }
 
     @Override
-    public PhotosDto update(PhotosDto photosDto) {
-        Photos photos = photosRepo.getReferenceById(photosDto.getId());
+    public PhotosDto update(Long id,PhotosDto photosDto) {
+        Photos photos = photosRepo.getReferenceById(id);
         photos.setUrl(photosDto.getUrl());
         return photosDto;
     }
 
     @Override
-    public PhotosDto delete(PhotosDto photosDto) {
-        photosRepo.deleteById(photosDto.getId());
-        return photosDto;
+    public String delete(Long id) {
+        photosRepo.deleteById(id);
+        return "success";
     }
 
     @Override

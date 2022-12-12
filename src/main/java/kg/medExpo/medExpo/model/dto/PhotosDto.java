@@ -7,6 +7,5 @@ import javax.persistence.Column;
 
 @Data
 public class PhotosDto {
-    private Long id;
     private String url;
 }

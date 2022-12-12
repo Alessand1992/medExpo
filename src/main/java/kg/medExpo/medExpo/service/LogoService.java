@@ -13,9 +13,9 @@ public interface LogoService {
 
     LogoDto create(LogoDto logoDto) throws IOException;
 
-    LogoDto update(LogoDto logoDto);
+    LogoDto update(Long id,LogoDto logoDto);
 
-    LogoDto delete(LogoDto logoDto);
+    String delete(Long id);
 
     List<Logo> findAll();
 }

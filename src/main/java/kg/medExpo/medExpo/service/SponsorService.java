@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface SponsorService {
 
-    SponsorDto findById(Long id);
+    Sponsor findById(Long id);
 
     SponsorDto create(SponsorDto sponsorDto);
 
-    SponsorDto update(SponsorDto sponsorDto);
+    SponsorDto update(Long id,SponsorDto sponsorDto);
 
-    SponsorDto delete(SponsorDto sponsorDto);
+    String delete(Long id);
 
     List<Sponsor> findAll();
 }

@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 
 @Data
 public class ManagerPhoneDto {
-    private Long id;
     private String phone;
     private String email;
     private String photoUrl;

@@ -20,7 +20,6 @@ public class OfficialSupportServiceImpl implements OfficialSupportService {
     public OfficialSupportDto findById(Long id) {
         OfficialSupport officialSupport = officialSupportRepo.getReferenceById(id);
         OfficialSupportDto officialSupportDto = new OfficialSupportDto();
-        officialSupportDto.setId(officialSupport.getId());
         officialSupportDto.setLanguageId(officialSupport.getLanguageId());
         officialSupportDto.setInfo(officialSupport.getInfo());
         officialSupportDto.setUrl(officialSupport.getUrl());
@@ -38,8 +37,8 @@ public class OfficialSupportServiceImpl implements OfficialSupportService {
     }
 
     @Override
-    public OfficialSupportDto update(OfficialSupportDto officialSupportDto) {
-        OfficialSupport officialSupport = officialSupportRepo.getReferenceById(officialSupportDto.getId());
+    public OfficialSupportDto update(Long id,OfficialSupportDto officialSupportDto) {
+        OfficialSupport officialSupport = officialSupportRepo.getReferenceById(id);
         officialSupport.setUrl(officialSupportDto.getUrl());
         officialSupport.setLanguageId(officialSupportDto.getLanguageId());
         officialSupport.setInfo(officialSupportDto.getInfo());
@@ -48,9 +47,9 @@ public class OfficialSupportServiceImpl implements OfficialSupportService {
     }
 
     @Override
-    public OfficialSupportDto delete(OfficialSupportDto officialSupportDto) {
-        officialSupportRepo.deleteById(officialSupportDto.getId());
-        return officialSupportDto;
+    public String delete(Long id) {
+        officialSupportRepo.deleteById(id);
+        return "success";
     }
 
     @Override

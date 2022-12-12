@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 
 @Data
 public class ProgramDto {
-    private Long id;
     private String title;
     private Language languageId;
 }

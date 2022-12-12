@@ -21,7 +21,6 @@ public class ManagerPhoneServiceImpl implements ManagerPhoneService {
     public ManagerPhoneDto findById(Long id) {
         ManagerPhone managerPhone = managerPhoneRepo.getReferenceById(id);
         ManagerPhoneDto managerPhoneDto = new ManagerPhoneDto();
-        managerPhoneDto.setId(managerPhone.getId());
         managerPhoneDto.setPhone(managerPhone.getPhone());
         managerPhoneDto.setLanguageId(managerPhone.getLanguageId());
         managerPhoneDto.setEmail(managerPhone.getEmail());
@@ -43,8 +42,8 @@ public class ManagerPhoneServiceImpl implements ManagerPhoneService {
     }
 
     @Override
-    public ManagerPhoneDto update(ManagerPhoneDto managerPhoneDto) {
-        ManagerPhone managerPhone = managerPhoneRepo.getReferenceById(managerPhoneDto.getId());
+    public ManagerPhoneDto update(Long id,ManagerPhoneDto managerPhoneDto) {
+        ManagerPhone managerPhone = managerPhoneRepo.getReferenceById(id);
         managerPhone.setPhone(managerPhoneDto.getPhone());
         managerPhone.setEmail(managerPhoneDto.getEmail());
         managerPhone.setPhotoUrl(managerPhoneDto.getPhotoUrl());
@@ -55,9 +54,9 @@ public class ManagerPhoneServiceImpl implements ManagerPhoneService {
     }
 
     @Override
-    public ManagerPhoneDto delete(ManagerPhoneDto managerPhoneDto) {
-        managerPhoneRepo.deleteById(managerPhoneDto.getId());
-        return managerPhoneDto;
+    public String delete(Long id) {
+        managerPhoneRepo.deleteById(id);
+        return "success";
     }
 
     @Override

@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface ProgramService {
 
-    ProgramDto findById(Long id);
+    Program findById(Long id);
 
     ProgramDto create(ProgramDto programDto);
 
-    ProgramDto update(ProgramDto programDto);
+    ProgramDto update(Long id,ProgramDto programDto);
 
-    ProgramDto delete(ProgramDto programDto);
+    String delete(Long id);
 
     List<Program> findAll();
 }

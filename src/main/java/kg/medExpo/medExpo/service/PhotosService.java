@@ -11,9 +11,9 @@ public interface PhotosService {
 
     PhotosDto create(PhotosDto photosDto);
 
-    PhotosDto update(PhotosDto photosDto);
+    PhotosDto update(Long id,PhotosDto photosDto);
 
-    PhotosDto delete(PhotosDto photosDto);
+    String delete(Long id);
 
     List<Photos> findAll();
 }

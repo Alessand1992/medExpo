@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface InfoSupportService {
 
-    InfoSupportDto findById(Long id);
+    InfoSupport findById(Long id);
 
     InfoSupportDto create(InfoSupportDto infoSupportDto);
 
-    InfoSupportDto update(InfoSupportDto infoSupportDto);
+    InfoSupportDto update(Long id,InfoSupportDto infoSupportDto);
 
-    InfoSupportDto delete(InfoSupportDto infoSupportDto);
+    String delete(Long id);
 
     List<InfoSupport> findAll();
 

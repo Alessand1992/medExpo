@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface VideoService {
 
-    VideoDto findById(Long id);
+    Video findById(Long id);
 
     VideoDto create(VideoDto videoDto);
 
-    VideoDto update(VideoDto videoDto);
+    VideoDto update(Long id,VideoDto videoDto);
 
-    VideoDto delete(VideoDto videoDto);
+    String delete(Long id);
 
     List<Video> findAll();
 }

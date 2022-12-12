@@ -12,9 +12,9 @@ public interface ManagerPhoneService {
 
     ManagerPhoneDto create(ManagerPhoneDto managerPhoneDto);
 
-    ManagerPhoneDto update(ManagerPhoneDto managerPhoneDto);
+    ManagerPhoneDto update(Long id,ManagerPhoneDto managerPhoneDto);
 
-    ManagerPhoneDto delete(ManagerPhoneDto managerPhoneDto);
+    String delete(Long id);
 
     List<ManagerPhone> findAll();
 }

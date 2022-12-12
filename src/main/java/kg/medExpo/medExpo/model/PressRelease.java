@@ -15,6 +15,9 @@ public class PressRelease {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
+    @Column
+    private String text;
     @JoinColumn
     @OneToMany
     private List<File> files;

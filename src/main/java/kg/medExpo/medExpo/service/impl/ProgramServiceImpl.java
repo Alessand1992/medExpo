@@ -17,13 +17,8 @@ public class ProgramServiceImpl implements ProgramService {
 
     private ProgramRepo programRepo;
     @Override
-    public ProgramDto findById(Long id) {
-        Program program = programRepo.getReferenceById(id);
-        ProgramDto programDto = new ProgramDto();
-        programDto.setId(program.getId());
-        programDto.setLanguageId(program.getLanguageId());
-        programDto.setTitle(program.getTitle());
-        return programDto;
+    public Program findById(Long id) {
+        return programRepo.getReferenceById(id);
     }
 
     @Override
@@ -36,8 +31,8 @@ public class ProgramServiceImpl implements ProgramService {
     }
 
     @Override
-    public ProgramDto update(ProgramDto programDto) {
-        Program program = programRepo.getReferenceById(programDto.getId());
+    public ProgramDto update(Long id,ProgramDto programDto) {
+        Program program = programRepo.getReferenceById(id);
         program.setLanguageId(programDto.getLanguageId());
         program.setTitle(programDto.getTitle());
         programRepo.save(program);
@@ -45,9 +40,9 @@ public class ProgramServiceImpl implements ProgramService {
     }
 
     @Override
-    public ProgramDto delete(ProgramDto programDto) {
-        programRepo.deleteById(programDto.getId());
-        return programDto;
+    public String delete(Long id) {
+        programRepo.deleteById(id);
+        return "success";
     }
 
     @Override

@@ -11,7 +11,6 @@ import java.util.List;
 
 @Data
 public class VisitorDto {
-    private Long id;
     private String textMain;
     private List<File> files;
     private LocalDateTime startDate;
