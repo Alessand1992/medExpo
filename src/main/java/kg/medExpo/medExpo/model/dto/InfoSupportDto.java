@@ -11,6 +11,6 @@ import javax.persistence.ManyToOne;
 public class InfoSupportDto {
     private String info;
     private String url;
-    private Language languageId;
+    private Long languageId;
 
 }

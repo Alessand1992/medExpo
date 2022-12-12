@@ -13,6 +13,6 @@ public class ManagerPhoneDto {
     private String email;
     private String photoUrl;
     private String info;
-    private Language languageId;
+    private Long languageId;
 
 }

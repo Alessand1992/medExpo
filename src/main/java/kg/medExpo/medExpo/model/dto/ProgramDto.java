@@ -10,5 +10,5 @@ import javax.persistence.ManyToOne;
 @Data
 public class ProgramDto {
     private String title;
-    private Language languageId;
+    private Long languageId;
 }
