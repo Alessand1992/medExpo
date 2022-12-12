@@ -3,6 +3,7 @@ package kg.medExpo.medExpo.service.impl;
 import kg.medExpo.medExpo.model.ManagerPhone;
 import kg.medExpo.medExpo.model.dto.ManagerPhoneDto;
 import kg.medExpo.medExpo.model.dto.update.ManagerPhoneUpdateDto;
+import kg.medExpo.medExpo.repo.LanguageRepo;
 import kg.medExpo.medExpo.repo.ManagerPhoneRepo;
 import kg.medExpo.medExpo.service.ManagerPhoneService;
 import lombok.AllArgsConstructor;
@@ -17,13 +18,13 @@ import java.util.List;
 public class ManagerPhoneServiceImpl implements ManagerPhoneService {
 
     private ManagerPhoneRepo managerPhoneRepo;
-
+    private LanguageRepo languageRepo;
     @Override
     public ManagerPhoneDto findById(Long id) {
         ManagerPhone managerPhone = managerPhoneRepo.getReferenceById(id);
         ManagerPhoneDto managerPhoneDto = new ManagerPhoneDto();
         managerPhoneDto.setPhone(managerPhone.getPhone());
-        managerPhoneDto.setLanguageId(managerPhone.getLanguageId());
+        managerPhoneDto.setLanguageId(managerPhone.getLanguageId().getId());
         managerPhoneDto.setEmail(managerPhone.getEmail());
         managerPhoneDto.setPhotoUrl(managerPhone.getPhotoUrl());
         managerPhoneDto.setInfo(managerPhone.getInfo());
@@ -36,7 +37,7 @@ public class ManagerPhoneServiceImpl implements ManagerPhoneService {
         managerPhone.setPhone(managerPhoneDto.getPhone());
         managerPhone.setEmail(managerPhoneDto.getEmail());
         managerPhone.setPhotoUrl(managerPhoneDto.getPhotoUrl());
-        managerPhone.setLanguageId(managerPhoneDto.getLanguageId());
+        managerPhone.setLanguageId(languageRepo.getReferenceById(managerPhoneDto.getLanguageId()));
         managerPhone.setInfo(managerPhoneDto.getInfo());
         managerPhoneRepo.save(managerPhone);
         return managerPhoneDto;
@@ -48,7 +49,7 @@ public class ManagerPhoneServiceImpl implements ManagerPhoneService {
         managerPhone.setPhone(managerPhoneDto.getPhone());
         managerPhone.setEmail(managerPhoneDto.getEmail());
         managerPhone.setPhotoUrl(managerPhoneDto.getPhotoUrl());
-        managerPhone.setLanguageId(managerPhoneDto.getLanguageId());
+        managerPhone.setLanguageId(languageRepo.getReferenceById(managerPhoneDto.getLanguageId()));
         managerPhone.setInfo(managerPhoneDto.getInfo());
         managerPhoneRepo.save(managerPhone);
         return managerPhoneDto;

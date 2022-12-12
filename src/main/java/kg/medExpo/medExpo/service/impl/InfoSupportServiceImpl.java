@@ -4,6 +4,7 @@ import kg.medExpo.medExpo.model.InfoSupport;
 import kg.medExpo.medExpo.model.dto.InfoSupportDto;
 import kg.medExpo.medExpo.model.dto.update.InfoSupportUpdateDto;
 import kg.medExpo.medExpo.repo.InfoSupportRepo;
+import kg.medExpo.medExpo.repo.LanguageRepo;
 import kg.medExpo.medExpo.service.InfoSupportService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,7 @@ import java.util.UUID;
 @Slf4j
 public class InfoSupportServiceImpl implements InfoSupportService {
     private InfoSupportRepo infoSupportRepo;
+    private LanguageRepo languageRepo;
 
     @Override
     public InfoSupport findById(Long id) {
@@ -29,7 +31,7 @@ public class InfoSupportServiceImpl implements InfoSupportService {
         InfoSupport infoSupport = new InfoSupport();
         infoSupport.setInfo(infoSupportDto.getInfo());
         infoSupport.setUrl(infoSupportDto.getUrl());
-        infoSupport.setLanguageId(infoSupportDto.getLanguageId());
+        infoSupport.setLanguageId(languageRepo.getReferenceById(infoSupportDto.getLanguageId()));
         infoSupportRepo.save(infoSupport);
         return infoSupportDto;
     }
@@ -39,7 +41,7 @@ public class InfoSupportServiceImpl implements InfoSupportService {
         InfoSupport infoSupport = infoSupportRepo.getReferenceById(infoSupportDto.getId());
         infoSupport.setInfo(infoSupportDto.getInfo());
         infoSupport.setUrl(infoSupportDto.getUrl());
-        infoSupport.setLanguageId(infoSupportDto.getLanguageId());
+        infoSupport.setLanguageId(languageRepo.getReferenceById(infoSupportDto.getLanguageId()));
         infoSupportRepo.save(infoSupport);
         return infoSupportDto;
     }
