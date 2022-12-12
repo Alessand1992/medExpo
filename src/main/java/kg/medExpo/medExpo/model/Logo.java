@@ -1,5 +1,6 @@
 package kg.medExpo.medExpo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Table
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Logo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

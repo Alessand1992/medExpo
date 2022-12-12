@@ -1,5 +1,6 @@
 package kg.medExpo.medExpo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.Generated;
 
@@ -10,6 +11,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "visitors")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Visitor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
