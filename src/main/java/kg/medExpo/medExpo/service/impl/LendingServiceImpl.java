@@ -2,6 +2,7 @@ package kg.medExpo.medExpo.service.impl;
 
 import kg.medExpo.medExpo.model.*;
 import kg.medExpo.medExpo.model.dto.LendingDto;
+import kg.medExpo.medExpo.model.dto.update.LendingUpdateDto;
 import kg.medExpo.medExpo.repo.*;
 import kg.medExpo.medExpo.service.LendingService;
 import lombok.AllArgsConstructor;
@@ -33,8 +34,8 @@ public class LendingServiceImpl implements LendingService {
     }
 
     @Override
-    public Lending updateById(Long id,LendingDto lendingDto) {
-        Lending lending = lendingRepo.getReferenceById(id);
+    public Lending updateById(LendingUpdateDto lendingDto) {
+        Lending lending = lendingRepo.getReferenceById(lendingDto.getId());
         List<InfoSupport> infoSupports = new ArrayList<>();
         List<OfficialSupport> officialSupports = new ArrayList<>();
         List<Sponsor> sponsors = new ArrayList<>();

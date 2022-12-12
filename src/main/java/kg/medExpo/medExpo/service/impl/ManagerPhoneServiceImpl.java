@@ -2,6 +2,7 @@ package kg.medExpo.medExpo.service.impl;
 
 import kg.medExpo.medExpo.model.ManagerPhone;
 import kg.medExpo.medExpo.model.dto.ManagerPhoneDto;
+import kg.medExpo.medExpo.model.dto.update.ManagerPhoneUpdateDto;
 import kg.medExpo.medExpo.repo.ManagerPhoneRepo;
 import kg.medExpo.medExpo.service.ManagerPhoneService;
 import lombok.AllArgsConstructor;
@@ -42,8 +43,8 @@ public class ManagerPhoneServiceImpl implements ManagerPhoneService {
     }
 
     @Override
-    public ManagerPhoneDto update(Long id,ManagerPhoneDto managerPhoneDto) {
-        ManagerPhone managerPhone = managerPhoneRepo.getReferenceById(id);
+    public ManagerPhoneDto update(ManagerPhoneUpdateDto managerPhoneDto) {
+        ManagerPhone managerPhone = managerPhoneRepo.getReferenceById(managerPhoneDto.getId());
         managerPhone.setPhone(managerPhoneDto.getPhone());
         managerPhone.setEmail(managerPhoneDto.getEmail());
         managerPhone.setPhotoUrl(managerPhoneDto.getPhotoUrl());

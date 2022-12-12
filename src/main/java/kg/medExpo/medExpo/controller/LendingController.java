@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import kg.medExpo.medExpo.model.MessageRequest;
 import kg.medExpo.medExpo.model.RestResponse;
 import kg.medExpo.medExpo.model.Visitor;
+import kg.medExpo.medExpo.model.dto.update.IdDto;
 import kg.medExpo.medExpo.service.LendingService;
 import kg.medExpo.medExpo.service.OfficialSupportService;
 import kg.medExpo.medExpo.service.PressReleaseService;
@@ -31,9 +32,9 @@ public class LendingController {
 
     @ApiOperation(value = "get lending by id", notes = "get lending by id")
     @RequestMapping(value = "/lending-id",method = RequestMethod.POST)
-    public RestResponse<?> findLendingById(@RequestParam Long id){
+    public RestResponse<?> findLendingById(@RequestBody IdDto id){
         try{
-            return RestResponse.of(HttpStatus.OK,lendingService.findById(id), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,lendingService.findById(id.getId()), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -41,9 +42,9 @@ public class LendingController {
 
     @ApiOperation(value = "get visitors by id", notes = "get visitors by id")
     @RequestMapping(value = "/visitor-id",method = RequestMethod.POST)
-    public RestResponse<?> findVisitorById(@RequestParam Long id){
+    public RestResponse<?> findVisitorById(@RequestBody IdDto id){
         try{
-            return RestResponse.of(HttpStatus.OK,visitorService.findById(id), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,visitorService.findById(id.getId()), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -51,9 +52,9 @@ public class LendingController {
 
     @ApiOperation(value = "get press release by id", notes = "get press release by id")
     @RequestMapping(value = "/pressRelease-id",method = RequestMethod.POST)
-    public RestResponse<?> findPressReleaseById(@RequestParam Long id){
+    public RestResponse<?> findPressReleaseById(@RequestBody IdDto id){
         try{
-            return RestResponse.of(HttpStatus.OK,pressReleaseService.findById(id), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,pressReleaseService.findById(id.getId()), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }
@@ -61,9 +62,9 @@ public class LendingController {
 
     @ApiOperation(value = "get official support by id", notes = "get official support by id")
     @RequestMapping(value = "/officialSupport-id",method = RequestMethod.POST)
-    public RestResponse<?> findOfficialSupportById(@RequestParam Long id){
+    public RestResponse<?> findOfficialSupportById(@RequestBody IdDto id){
         try{
-            return RestResponse.of(HttpStatus.OK,officialSupportService.findById(id), Map.of("0","Success"));
+            return RestResponse.of(HttpStatus.OK,officialSupportService.findById(id.getId()), Map.of("0","Success"));
         }catch (Exception e){
             return RestResponse.of(HttpStatus.NOT_FOUND,e.getMessage(), Map.of("-1","Error"));
         }

@@ -2,6 +2,7 @@ package kg.medExpo.medExpo.service.impl;
 
 import kg.medExpo.medExpo.model.Video;
 import kg.medExpo.medExpo.model.dto.VideoDto;
+import kg.medExpo.medExpo.model.dto.update.VideoUpdateDto;
 import kg.medExpo.medExpo.repo.VideoRepo;
 import kg.medExpo.medExpo.service.VideoService;
 import lombok.AllArgsConstructor;
@@ -31,8 +32,8 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public VideoDto update(Long id,VideoDto videoDto) {
-        Video video = videoRepo.getReferenceById(id);
+    public VideoDto update(VideoUpdateDto videoDto) {
+        Video video = videoRepo.getReferenceById(videoDto.getId());
         video.setUrl(videoDto.getUrl());
         return videoDto;
     }

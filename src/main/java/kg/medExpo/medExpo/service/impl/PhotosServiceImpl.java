@@ -2,6 +2,7 @@ package kg.medExpo.medExpo.service.impl;
 
 import kg.medExpo.medExpo.model.Photos;
 import kg.medExpo.medExpo.model.dto.PhotosDto;
+import kg.medExpo.medExpo.model.dto.update.PhotoUpdateDto;
 import kg.medExpo.medExpo.repo.PhotosRepo;
 import kg.medExpo.medExpo.service.PhotosService;
 import lombok.AllArgsConstructor;
@@ -34,8 +35,8 @@ public class PhotosServiceImpl implements PhotosService {
     }
 
     @Override
-    public PhotosDto update(Long id,PhotosDto photosDto) {
-        Photos photos = photosRepo.getReferenceById(id);
+    public PhotosDto update(PhotoUpdateDto photosDto) {
+        Photos photos = photosRepo.getReferenceById(photosDto.getId());
         photos.setUrl(photosDto.getUrl());
         return photosDto;
     }

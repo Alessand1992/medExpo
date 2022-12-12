@@ -2,6 +2,7 @@ package kg.medExpo.medExpo.service.impl;
 
 import kg.medExpo.medExpo.model.InfoSupport;
 import kg.medExpo.medExpo.model.dto.InfoSupportDto;
+import kg.medExpo.medExpo.model.dto.update.InfoSupportUpdateDto;
 import kg.medExpo.medExpo.repo.InfoSupportRepo;
 import kg.medExpo.medExpo.service.InfoSupportService;
 import lombok.AllArgsConstructor;
@@ -34,8 +35,8 @@ public class InfoSupportServiceImpl implements InfoSupportService {
     }
 
     @Override
-    public InfoSupportDto update(Long id,InfoSupportDto infoSupportDto) {
-        InfoSupport infoSupport = infoSupportRepo.getReferenceById(id);
+    public InfoSupportDto update(InfoSupportUpdateDto infoSupportDto) {
+        InfoSupport infoSupport = infoSupportRepo.getReferenceById(infoSupportDto.getId());
         infoSupport.setInfo(infoSupportDto.getInfo());
         infoSupport.setUrl(infoSupportDto.getUrl());
         infoSupport.setLanguageId(infoSupportDto.getLanguageId());

@@ -2,6 +2,7 @@ package kg.medExpo.medExpo.service.impl;
 
 import kg.medExpo.medExpo.model.Visitor;
 import kg.medExpo.medExpo.model.dto.VisitorDto;
+import kg.medExpo.medExpo.model.dto.update.VisitorUpdateDto;
 import kg.medExpo.medExpo.repo.VisitorsRepo;
 import kg.medExpo.medExpo.service.VisitorService;
 import lombok.AllArgsConstructor;
@@ -38,8 +39,8 @@ public class VisitorServiceImpl implements VisitorService {
     }
 
     @Override
-    public VisitorDto update(Long id,VisitorDto visitorDto) {
-        Visitor visitor = visitorsRepo.getReferenceById(id);
+    public VisitorDto update(VisitorUpdateDto visitorDto) {
+        Visitor visitor = visitorsRepo.getReferenceById(visitorDto.getId());
         visitor.setFiles(visitorDto.getFiles());
         visitor.setStartDate(visitorDto.getStartDate());
         visitor.setEndDate(visitorDto.getEndDate());

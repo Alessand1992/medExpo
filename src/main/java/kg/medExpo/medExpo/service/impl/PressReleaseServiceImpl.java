@@ -3,6 +3,7 @@ package kg.medExpo.medExpo.service.impl;
 import kg.medExpo.medExpo.model.File;
 import kg.medExpo.medExpo.model.PressRelease;
 import kg.medExpo.medExpo.model.dto.PressReleaseDto;
+import kg.medExpo.medExpo.model.dto.update.PressReleaseUpdateDto;
 import kg.medExpo.medExpo.repo.FileRepo;
 import kg.medExpo.medExpo.repo.PressReleaseRepo;
 import kg.medExpo.medExpo.service.PressReleaseService;
@@ -42,8 +43,8 @@ public class PressReleaseServiceImpl implements PressReleaseService {
     }
 
     @Override
-    public PressReleaseDto update(Long id,PressReleaseDto pressReleaseDto) {
-        PressRelease pressRelease = pressReleaseRepo.getReferenceById(id);
+    public PressReleaseDto update(PressReleaseUpdateDto pressReleaseDto) {
+        PressRelease pressRelease = pressReleaseRepo.getReferenceById(pressReleaseDto.getId());
         List<File> files = new ArrayList<>();
         for(int i = 0 ;i < pressReleaseDto.getFilesId().size(); i++){
             File file = fileRepo.getReferenceById(pressReleaseDto.getFilesId().get(i));

@@ -2,6 +2,7 @@ package kg.medExpo.medExpo.service.impl;
 
 import kg.medExpo.medExpo.model.Program;
 import kg.medExpo.medExpo.model.dto.ProgramDto;
+import kg.medExpo.medExpo.model.dto.update.ProgramUpdateDto;
 import kg.medExpo.medExpo.repo.ProgramRepo;
 import kg.medExpo.medExpo.service.ProgramService;
 import lombok.AllArgsConstructor;
@@ -31,8 +32,8 @@ public class ProgramServiceImpl implements ProgramService {
     }
 
     @Override
-    public ProgramDto update(Long id,ProgramDto programDto) {
-        Program program = programRepo.getReferenceById(id);
+    public ProgramDto update(ProgramUpdateDto programDto) {
+        Program program = programRepo.getReferenceById(programDto.getId());
         program.setLanguageId(programDto.getLanguageId());
         program.setTitle(programDto.getTitle());
         programRepo.save(program);

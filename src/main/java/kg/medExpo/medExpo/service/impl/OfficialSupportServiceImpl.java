@@ -2,6 +2,7 @@ package kg.medExpo.medExpo.service.impl;
 
 import kg.medExpo.medExpo.model.OfficialSupport;
 import kg.medExpo.medExpo.model.dto.OfficialSupportDto;
+import kg.medExpo.medExpo.model.dto.update.OfficialSupportUpdateDto;
 import kg.medExpo.medExpo.repo.OfficialSupportRepo;
 import kg.medExpo.medExpo.service.OfficialSupportService;
 import lombok.AllArgsConstructor;
@@ -37,8 +38,8 @@ public class OfficialSupportServiceImpl implements OfficialSupportService {
     }
 
     @Override
-    public OfficialSupportDto update(Long id,OfficialSupportDto officialSupportDto) {
-        OfficialSupport officialSupport = officialSupportRepo.getReferenceById(id);
+    public OfficialSupportDto update(OfficialSupportUpdateDto officialSupportDto) {
+        OfficialSupport officialSupport = officialSupportRepo.getReferenceById(officialSupportDto.getId());
         officialSupport.setUrl(officialSupportDto.getUrl());
         officialSupport.setLanguageId(officialSupportDto.getLanguageId());
         officialSupport.setInfo(officialSupportDto.getInfo());
