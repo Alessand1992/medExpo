@@ -17,6 +17,8 @@ public class Program {
     private Long id;
     @Column
     private String title;
+    @Column
+    private String description;
     @JoinColumn
     @ManyToOne
     private Language languageId;

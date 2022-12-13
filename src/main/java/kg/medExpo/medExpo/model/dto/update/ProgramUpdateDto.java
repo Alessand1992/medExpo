@@ -8,4 +8,5 @@ import lombok.EqualsAndHashCode;
 @Data
 public class ProgramUpdateDto extends ProgramDto {
     private Long id;
+
 }

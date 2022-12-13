@@ -28,6 +28,7 @@ public class ProgramServiceImpl implements ProgramService {
     public ProgramDto create(ProgramDto programDto) {
         Program program = new Program();
         program.setLanguageId(languageRepo.getReferenceById(programDto.getLanguageId()));
+        program.setDescription(programDto.getDescription());
         program.setTitle(programDto.getTitle());
         programRepo.save(program);
         return programDto;
@@ -37,6 +38,7 @@ public class ProgramServiceImpl implements ProgramService {
     public ProgramDto update(ProgramUpdateDto programDto) {
         Program program = programRepo.getReferenceById(programDto.getId());
         program.setLanguageId(languageRepo.getReferenceById(programDto.getLanguageId()));
+        program.setDescription(programDto.getDescription());
         program.setTitle(programDto.getTitle());
         programRepo.save(program);
         return programDto;

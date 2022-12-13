@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 public class VisitorDto {
     private String textMain;
-    private List<File> files;
+    private List<Long> files;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private String textFirst;
